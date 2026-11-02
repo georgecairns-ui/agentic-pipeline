@@ -43,7 +43,7 @@
     if (waiting.length) {
       status = busy ? '<p class="notes__status is-busy">' + icon("loader", "spin") + "Claude is reading your notes and updating this deal. It takes a minute or 2.</p>" :
         '<div class="notes__status">' + icon("info") + "<span>" + waiting.length + (waiting.length === 1 ? " set of notes is" : " sets of notes are") + " waiting for Claude.</span>" +
-        '<a class="btn btn--sm" href="' + esc(C.claudeLink("Update the " + x.title + " deal in Pipeline OS from the call notes I've just added. Follow .claude/skills/update-a-deal.")) + '">' + icon("external") + "Open in Claude</a></div>";
+        '<a class="btn btn--sm" href="' + esc(C.claudeLink("Update the " + x.title + " deal in Agentic Pipeline from the call notes I've just added. Follow .claude/skills/update-a-deal.")) + '">' + icon("external") + "Open in Claude</a></div>";
     }
     return '<section class="drawer__section notes" data-dropzone>' +
       '<h3 class="label"><label for="dealNotes">Add call notes</label></h3>' +

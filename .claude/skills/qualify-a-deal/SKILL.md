@@ -1,6 +1,6 @@
 ---
 name: qualify-a-deal
-description: The deal check - qualifies a deal in Pipeline OS against MEDDPICC's 8 questions, asked in plain English (what is the problem costing them, who signs it off, what will they judge it on, how and when will they decide, contracts or checks, what's hurting, who else they're considering, who's pushing for it). Each answer is Known, Partly known or Not known yet, with the evidence. Adds risks, buying signals and the questions to ask next time. Used by update-a-deal after every call, email or note, or when the person asks "how qualified is this deal?", "qualify the Hollins deal", "is this deal real?".
+description: The deal check - qualifies a deal in Agentic Pipeline against MEDDPICC's 8 questions, asked in plain English (what is the problem costing them, who signs it off, what will they judge it on, how and when will they decide, contracts or checks, what's hurting, who else they're considering, who's pushing for it). Each answer is Known, Partly known or Not known yet, with the evidence. Adds risks, buying signals and the questions to ask next time. Used by update-a-deal after every call, email or note, or when the person asks "how qualified is this deal?", "qualify the Hollins deal", "is this deal real?".
 ---
 
 # Qualify a deal (the deal check)

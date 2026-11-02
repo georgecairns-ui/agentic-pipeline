@@ -1,8 +1,8 @@
-# Marketing notes: Pipeline OS
+# Marketing notes: Agentic Pipeline
 
 ## In one sentence
 
-After every sales call, Pipeline OS updates the deal for you, tells you what to ask next time and drafts the email back, so nothing slips and you get better at selling.
+After every sales call, Agentic Pipeline updates the deal for you, tells you what to ask next time and drafts the email back, so nothing slips and you get better at selling.
 
 ## Before and after, for the owner
 

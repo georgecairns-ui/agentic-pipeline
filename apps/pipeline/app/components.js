@@ -3,7 +3,7 @@
   -----------------------------------------------------
   Deal cards, chips, avatars, the deal check meter, section headings and empty states. Each
   function returns a piece of HTML as text. Buttons carry data-action="..." and app.js decides
-  what each does. Same look and wording as Task List OS.
+  what each does. Same look and wording as Agentic Task List.
 */
 (function () {
   "use strict";
@@ -143,7 +143,7 @@
       '<div class="setup-card__body"><h2>Let\u2019s set up your pipeline</h2>' +
       '<p class="muted">It\u2019s empty for now. Claude fills it with your real deals in 30 to 40 minutes, and you approve everything.</p>' +
       '<ol class="setup-card__steps">' +
-      "<li>Open Claude Code in your <strong>Pipeline OS</strong> folder (in the Claude desktop app, the Code tab).</li>" +
+      "<li>Open Claude Code in your <strong>Agentic Pipeline</strong> folder (in the Claude desktop app, the Code tab).</li>" +
       "<li>Type " + say("/setup") + " and answer Claude\u2019s questions. It asks what you sell and who you sell to, then connects your email, calendar and calls.</li>" +
       "<li>Your deals, the next step on each and the chases to send appear here. Nothing is sent until you say so.</li>" +
       "</ol></div></section>";

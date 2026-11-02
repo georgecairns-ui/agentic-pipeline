@@ -23,7 +23,7 @@ description: Gets the person ready for a sales call in 2 minutes - who they're m
    - **Watch for**: the top risk.
    - **How to run it**: the research's call plan, in one line per step.
 3. Save it on the deal (`nextMeeting.prep`: the questions) and add a `prep` suggestion: `title` "Prep for your call with Mark Ellis tomorrow at 10am", `reason` one line (the single most important thing to find out), with the full prep in `notes` on the suggestion.
-4. If Task List OS is attached, add a suggested task "Prep for your call with Mark Ellis", due the day of the call, with the prep in its notes and `source: { "tool": "pipeline", "id": "<deal id>" }`.
+4. If Agentic Task List is attached, add a suggested task "Prep for your call with Mark Ellis", due the day of the call, with the prep in its notes and `source: { "tool": "pipeline", "id": "<deal id>" }`.
 5. Save safely.
 
 ## What to say, when asked

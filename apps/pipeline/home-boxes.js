@@ -1,9 +1,9 @@
 /*
-  PIPELINE OS ON HOME: the boxes this tool adds to the Home dashboard
+  AGENTIC PIPELINE ON HOME: the boxes this tool adds to the Home dashboard
   -------------------------------------------------------------------
   Loaded by apps/home/home.js after app/model.js (see "home" in menu.json).
-  It reads the same pipeline file as the pipeline itself, through the same shared store. On its own, Pipeline OS's boxes start switched on. With
-  Task List OS in the folder they start switched off (the person turns them on in Home's list),
+  It reads the same pipeline file as the pipeline itself, through the same shared store. On its own, Agentic Pipeline's boxes start switched on. With
+  Agentic Task List in the folder they start switched off (the person turns them on in Home's list),
   so attaching never changes someone's Home.
 */
 (function () {
@@ -14,7 +14,7 @@
   const PAGE = "../pipeline/#";
   let data = null;
 
-  // Boxes start switched on only when Pipeline OS is on its own. When Task List OS is in the folder
+  // Boxes start switched on only when Agentic Pipeline is on its own. When Agentic Task List is in the folder
   // (its Home scripts load first and set window.TL), they start off, so attaching never changes
   // someone's Home. Home reads this once, when it first builds the layout.
   function startOn() { return !window.TL; }
@@ -25,7 +25,7 @@
 
   // ---------- The boxes ----------
   function value() {
-    if (M.notSetUp(data)) return '<div class="hbox__setup"><p><strong>Let\u2019s set up your pipeline.</strong> In the Claude desktop app, open the Code tab in your Pipeline OS folder and type <code>/setup</code>. Claude asks what you sell, connects your email, calendar and calls, then fills this page with your real deals.</p></div>';
+    if (M.notSetUp(data)) return '<div class="hbox__setup"><p><strong>Let\u2019s set up your pipeline.</strong> In the Claude desktop app, open the Code tab in your Agentic Pipeline folder and type <code>/setup</code>. Claude asks what you sell, connects your email, calendar and calls, then fills this page with your real deals.</p></div>';
     const n = M.numbers(data);
     if (!n.open && !n.wonMonthCount) return empty("No open deals yet. Claude adds them from your email, calendar and calls on each check-in, or add one with New deal on the Pipeline page.");
     const stages = M.openStages().map(function (s) { return { s: s, n: M.dealsInStage(data, s.key).length, v: M.stageValue(data, s.key) }; }).filter(function (r) { return r.n; });

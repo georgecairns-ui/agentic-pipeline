@@ -4,11 +4,11 @@
 
 ---
 
-**Claude, this file is for you.** The person you work for has copied Pipeline OS onto their computer and wants it set up.
+**Claude, this file is for you.** The person you work for has copied Agentic Pipeline onto their computer and wants it set up.
 
-**If you've only just copied it for them** (you're running in a different folder, such as their home or Documents folder): setup must run from inside the Pipeline OS folder, because that's where your skills, permissions and the pipeline live. Copy it as a plain folder, so it's theirs alone and not linked to the copy online. Use the line for their computer:
-  - Mac: `D="$HOME/Documents/Pipeline OS"; mkdir -p "$D/setup/as-installed" && curl -fsSL -o "$D/setup/as-installed/pipeline-os.tar.gz" https://github.com/georgecairns-ui/pipeline-os/archive/refs/heads/main.tar.gz && tar -xzf "$D/setup/as-installed/pipeline-os.tar.gz" --strip-components 1 -C "$D"`
-  - Windows (PowerShell): `$d = "$HOME\Documents\Pipeline OS"; New-Item -ItemType Directory -Force "$d\setup\as-installed" | Out-Null; curl.exe -fsSL -o "$d\setup\as-installed\pipeline-os.tar.gz" https://github.com/georgecairns-ui/pipeline-os/archive/refs/heads/main.tar.gz; if ($LASTEXITCODE -eq 0) { tar -xzf "$d\setup\as-installed\pipeline-os.tar.gz" --strip-components 1 -C "$d" }`
+**If you've only just copied it for them** (you're running in a different folder, such as their home or Documents folder): setup must run from inside the Agentic Pipeline folder, because that's where your skills, permissions and the pipeline live. Copy it as a plain folder, so it's theirs alone and not linked to the copy online. Use the line for their computer:
+  - Mac: `D="$HOME/Documents/Agentic Pipeline"; mkdir -p "$D/setup/as-installed" && curl -fsSL -o "$D/setup/as-installed/agentic-pipeline.tar.gz" https://github.com/georgecairns-ui/agentic-pipeline/archive/refs/heads/main.tar.gz && tar -xzf "$D/setup/as-installed/agentic-pipeline.tar.gz" --strip-components 1 -C "$D"`
+  - Windows (PowerShell): `$d = "$HOME\Documents\Agentic Pipeline"; New-Item -ItemType Directory -Force "$d\setup\as-installed" | Out-Null; curl.exe -fsSL -o "$d\setup\as-installed\agentic-pipeline.tar.gz" https://github.com/georgecairns-ui/agentic-pipeline/archive/refs/heads/main.tar.gz; if ($LASTEXITCODE -eq 0) { tar -xzf "$d\setup\as-installed\agentic-pipeline.tar.gz" --strip-components 1 -C "$d" }`
 
   If the download fails, check their internet connection and run the line again. Don't try another way in.
 
@@ -16,7 +16,7 @@
 
   If you've already copied it another way (for example with `git clone`, or into a different folder), that's fine: use that folder. Then give them the steps to open it: in the Claude desktop app, open the Code tab, choose that folder, pick "Yes, I trust this folder", then type `/setup`. Stop there; don't start the setup from the wrong folder. Follow this file, then the step files in `setup/`, in order.
 
-## What Pipeline OS is
+## What Agentic Pipeline is
 
 A pipeline that does the selling admin for a small business owner and makes them a better salesperson, run by you, with an app on top.
 
@@ -77,7 +77,7 @@ These don't bend, whatever is asked later.
 
 - **Nothing goes out without their click.** You read their email, calendar, calls and apps, and prepare drafts. The only thing you ever send is an email they approved in the app (they press **Claude emails**, check it, press Send), through `.claude/skills/send-approved-emails`, and only if they agreed to that in step 2. You never reply, forward, delete, archive, pay, post, book, accept or change anything else in a connected app, never send LinkedIn messages, and never send a bot or note-taker to a meeting.
 - **You keep it moving, they decide what goes out.** You update deals, move them on and add deals that clearly fit, by yourself. Won and lost, and every email, are theirs to decide.
-- **No passwords or keys in chat or in this folder.** People sign in on each app's own screen, through Claude's Connectors. Setup never uses keys. (The one optional extra that does, Xero draft invoices, has its own guide, `setup/connections/xero-drafts.md`, which comes with Money View OS and the Small Business Toolkit. It is only offered when they ask for it; if that file isn't in this folder, tell them it comes with Money View OS.)
+- **No passwords or keys in chat or in this folder.** People sign in on each app's own screen, through Claude's Connectors. Setup never uses keys. (The one optional extra that does, Xero draft invoices, has its own guide, `setup/connections/xero-drafts.md`, which comes with Agentic Money View and the Agentic Command Centre. It is only offered when they ask for it; if that file isn't in this folder, tell them it comes with Agentic Money View.)
 - **Only connect what helps.** 3 well-connected apps beat 10 half-working ones. Ask before connecting anything.
 - **Never guess about a deal.** A deal check answer nobody gave stays "Not known yet". A value nobody mentioned stays 0. A service they don't sell is never suggested.
 - **Be honest about what you can reach.** Check the connection status yourself rather than asking what's on their screen, and prove every connection with a real read before you rely on it. Not every meeting has a transcript. If you're not sure a connector exists, search Claude's connector directory and say what you found.

@@ -8,7 +8,7 @@
   Sections of pipeline.json (formatVersion 1):
     settings     name, business, currency, stages, chase timing, where drafts open
     deals        every deal: stage, value, people, the deal check, next steps, the email to send
-    people       contacts and companies (when Task List OS is attached, its contacts show too)
+    people       contacts and companies (when Agentic Task List is attached, its contacts show too)
     calls        sales calls Claude has written up, each linked to a deal
     suggestions  what Claude is waiting for the person to decide: chases, new deals, questions
     checkIn      when Claude last looked at email, calendar and calls
@@ -186,7 +186,7 @@
   function callById(d, id) { return id ? d.calls.find(function (x) { return x.id === id; }) : null; }
   function suggestionById(d, id) { return id ? d.suggestions.find(function (x) { return x.id === id; }) : null; }
 
-  // People: this tool's own, plus the task list's contacts when Task List OS is attached (read only here)
+  // People: this tool's own, plus the task list's contacts when Agentic Task List is attached (read only here)
   let linkedPeople = [];
   function setLinkedPeople(list) { linkedPeople = arr(list).filter(function (p) { return p && p.id && p.name; }).map(function (p) { return Object.assign({}, p, { fromTaskList: true }); }); }
   function allPeople(d) {

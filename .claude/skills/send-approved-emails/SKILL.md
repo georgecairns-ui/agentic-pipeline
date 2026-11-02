@@ -1,11 +1,11 @@
 ---
 name: send-approved-emails
-description: Sends the emails the person approved in Pipeline OS - only the ones where they pressed "Claude emails", checked the email and pressed Send (sendStatus "queued") - exactly as written, from their own email, then records what happened. The app starts this straight away. Also use when the person says "send my approved emails". Never sends anything else.
+description: Sends the emails the person approved in Agentic Pipeline - only the ones where they pressed "Claude emails", checked the email and pressed Send (sendStatus "queued") - exactly as written, from their own email, then records what happened. The app starts this straight away. Also use when the person says "send my approved emails". Never sends anything else.
 ---
 
 # Send approved emails
 
-The person pressed **Claude emails** on an email in Pipeline OS, checked it in the pop-up, and pressed **Send**. That click is their approval for that one email. This skill sends it for them. It is the only place in the kit where Claude sends anything.
+The person pressed **Claude emails** on an email in Agentic Pipeline, checked it in the pop-up, and pressed **Send**. That click is their approval for that one email. This skill sends it for them. It is the only place in the kit where Claude sends anything.
 
 ## The rules (these never bend)
 
