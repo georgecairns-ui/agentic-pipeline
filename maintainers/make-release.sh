@@ -2,26 +2,26 @@
 #
 # MAKE RELEASE
 # ------------
-# Builds dist/pipeline-os.zip: a clean copy of the kit for customers to download.
+# Builds dist/agentic-pipeline.zip: a clean copy of the kit for customers to download.
 #
-# Run it from the pipeline-os folder with:   bash maintainers/make-release.sh
+# Run it from the agentic-pipeline folder with:   bash maintainers/make-release.sh
 #
 # What it does:
 #   1. Checks the files that ship are still blank templates, so nobody's real deals,
 #      business notes or setup progress can go out by mistake. Stops if not.
 #      That includes anything in setup/as-installed/ except its README (a customer's saved download).
-#   2. Copies the kit into a temporary folder called "Pipeline OS", leaving out this
+#   2. Copies the kit into a temporary folder called "Agentic Pipeline", leaving out this
 #      maintainers folder, git history, old builds, backups and computer clutter.
 #   3. Checks the copy is complete and the data file is valid.
-#   4. Zips it as dist/pipeline-os.zip, replacing any older one.
+#   4. Zips it as dist/agentic-pipeline.zip, replacing any older one.
 
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DIST="$ROOT/dist"
-STAGE="$(mktemp -d "${TMPDIR:-/tmp}/pipeline-os-build.XXXXXX")"
+STAGE="$(mktemp -d "${TMPDIR:-/tmp}/agentic-pipeline-build.XXXXXX")"
 trap 'rm -rf "$STAGE"' EXIT
-NAME="Pipeline OS"
+NAME="Agentic Pipeline"
 OUT="$STAGE/$NAME"
 
 fail() { echo "RELEASE STOPPED: $1" >&2; exit 1; }
@@ -80,7 +80,7 @@ shared_version = (root / "apps/shared/VERSION").read_text().split()[0]
 if str(json.loads((root / "toolkit.json").read_text()).get("sharedVersion")) != shared_version:
     problems.append(f"toolkit.json sharedVersion is {json.loads((root / 'toolkit.json').read_text()).get('sharedVersion')!r} but apps/shared/VERSION says {shared_version}: change them together")
 # Shared parts are identical in every tool, so they must not name one. No file may use the old start-up names,
-# and no message in the scripts, the helper or the shared page code may say "Pipeline OS" (they read the tool's name from toolkit.json)
+# and no message in the scripts, the helper or the shared page code may say "Agentic Pipeline" (they read the tool's name from toolkit.json)
 skip_dirs = {".git", "dist", "maintainers", "node_modules"}
 for f in sorted(root.rglob("*")):
     if not f.is_file() or skip_dirs & set(f.relative_to(root).parts) or f.suffix in (".png", ".jpg", ".woff2", ".zip", ".gz", ".ico"):
@@ -113,12 +113,12 @@ for f in sorted(root.rglob("*")):
     for old in ("open-task-list", "start-task-list"):
         if old in txt:
             problems.append(f"{rel} uses the old name {old} (it is now open-the-app / start-app, the same in every tool)")
-    # apps/shared/js/braindump.js is shared byte for byte and names Pipeline OS once, as the
+    # apps/shared/js/braindump.js is shared byte for byte and names Agentic Pipeline once, as the
     # illustrative example of a tool using register(); that line is not this tool naming itself
     if rel == "apps/shared/js/braindump.js":
         continue
-    if re.match(r"setup/scripts/|apps/server/|apps/shared/js/", rel) and re.search(r"Pipeline OS|(?<!window\.)PipelineOS", txt):
-        problems.append(f"{rel} names a tool (Pipeline OS): shared parts read the name from toolkit.json")
+    if re.match(r"setup/scripts/|apps/server/|apps/shared/js/", rel) and re.search(r"Agentic Pipeline|(?<!window\.)PipelineOS", txt):
+        problems.append(f"{rel} names a tool (Agentic Pipeline): shared parts read the name from toolkit.json")
 for p in problems:
     print("  - " + p, file=sys.stderr)
 sys.exit(1 if problems else 0)
@@ -142,13 +142,13 @@ done
 for f in apps/pipeline/data/pipeline.json apps/pipeline/menu.json apps/pipeline/claude-jobs.json toolkit.json apps/installed.json apps/shared/catalogue.json; do
   python3 -c 'import json,sys; json.load(open(sys.argv[1]))' "$OUT/$f" || fail "$f is not valid"
 done
-# A fresh download lists only Pipeline OS, and no test tool ever ships
-python3 -c 'import json,sys; t=json.load(open(sys.argv[1]))["tools"]; sys.exit(0 if [x["id"] for x in t]==["pipeline"] else 1)' "$OUT/apps/installed.json" || fail "apps/installed.json must list only Pipeline OS"
+# A fresh download lists only Agentic Pipeline, and no test tool ever ships
+python3 -c 'import json,sys; t=json.load(open(sys.argv[1]))["tools"]; sys.exit(0 if [x["id"] for x in t]==["pipeline"] else 1)' "$OUT/apps/installed.json" || fail "apps/installed.json must list only Agentic Pipeline"
 [ ! -e "$OUT/apps/test-tool" ] || fail "the test tool is in the release"
 if grep -rIl $'—' "$OUT" >/dev/null 2>&1; then fail "an em dash slipped in: $(grep -rIl $'—' "$OUT" | head -3)"; fi
 SKILLS=$(find "$OUT/.claude/skills" -name SKILL.md | wc -l | tr -d ' ')
 
 # ---------- 4. Zip (COPYFILE_DISABLE stops macOS adding hidden ._ files) ----------
-rm -f "$DIST/pipeline-os.zip"
-(cd "$STAGE" && COPYFILE_DISABLE=1 zip -rqX "$DIST/pipeline-os.zip" "$NAME")
-echo "Built dist/pipeline-os.zip ($(du -h "$DIST/pipeline-os.zip" | cut -f1 | tr -d ' '), $SKILLS skills)"
+rm -f "$DIST/agentic-pipeline.zip"
+(cd "$STAGE" && COPYFILE_DISABLE=1 zip -rqX "$DIST/agentic-pipeline.zip" "$NAME")
+echo "Built dist/agentic-pipeline.zip ($(du -h "$DIST/agentic-pipeline.zip" | cut -f1 | tr -d ' '), $SKILLS skills)"

@@ -1,6 +1,6 @@
 # Pipeline: standing instructions for Claude
 
-This folder is the pipeline app inside Pipeline OS. You (Claude) and the app share one file, `data/pipeline.json`. The person you work for sees it as a proper piece of software: Pipeline (every deal on a board by stage, or a list; a card with a call booked shows the day and time), Review (what you're waiting for them to decide), Calls (sales calls coming up, and every sales call written up), People (contacts in 5 groups), and Preferences. Each deal opens in a panel with the call notes box, next steps, your tip, the email to send, the deal check, other ways they could help, and everything that has happened. Read this file every time you work with the pipeline.
+This folder is the pipeline app inside Agentic Pipeline. You (Claude) and the app share one file, `data/pipeline.json`. The person you work for sees it as a proper piece of software: Pipeline (every deal on a board by stage, or a list; a card with a call booked shows the day and time), Review (what you're waiting for them to decide), Calls (sales calls coming up, and every sales call written up), People (contacts in 5 groups), and Preferences. Each deal opens in a panel with the call notes box, next steps, your tip, the email to send, the deal check, other ways they could help, and everything that has happened. Read this file every time you work with the pipeline.
 
 The app runs at **http://localhost:4747**, served by a small helper on this computer (`apps/server/`, started by `.claude/skills/open-the-app`). The helper reads and saves this same file, so you edit it directly as described below; the app picks up your changes within a few seconds.
 
@@ -61,7 +61,7 @@ Change settings only when the person asks, or in setup.
 | `id` | `d-` plus 6 random lowercase letters or digits. Never change or reuse one. |
 | `title` | What the deal is, in plain words: "New website for Hollins Lettings". |
 | `organisation` | The business you're selling to. |
-| `personIds` | The people involved, from `people` (or the task list's contacts when Task List OS is attached; see "People"). The main contact first. |
+| `personIds` | The people involved, from `people` (or the task list's contacts when Agentic Task List is attached; see "People"). The main contact first. |
 | `value` | What it's worth, as a number in their currency, from what was said or their prices in `context/sales.md`. 0 if nobody knows yet. Never guess a number that wasn't said or can't be worked out from their price list. |
 | `stage` | A key from `settings.stages`. |
 | `source` | Where it came from: "Referral from Tom", "Website enquiry", "LinkedIn". |
@@ -107,7 +107,7 @@ Plus `risks` (list), `signals` (buying signals, list), `questions` (3 to 5 to as
 
 `role` is `prospect`, `client`, `customer`, `supplier`, `team`, `adviser` or `other`. Keep `context/people.md` in step for the softer notes.
 
-**When Task List OS is attached**, contacts are kept once, in the task list (`apps/task-list/data/tasks.json`, `people`). The app shows them in People too, read only. Link deals to their ids instead of adding a copy here. Add someone new here only if they aren't in the task list; tell the person, and offer to add them to the task list's contacts instead.
+**When Agentic Task List is attached**, contacts are kept once, in the task list (`apps/task-list/data/tasks.json`, `people`). The app shows them in People too, read only. Link deals to their ids instead of adding a copy here. Add someone new here only if they aren't in the task list; tell the person, and offer to add them to the task list's contacts instead.
 
 ### People groups
 
@@ -132,7 +132,7 @@ Keep `role` accurate (a prospect who becomes a client is `client`) and add prosp
   "dealId": "d-hollins", "personIds": ["p-dev"], "summary": "2 or 3 sentences", "decisions": ["Sam sends a proposal by Monday"], "taskListMeetingId": "m-..." }
 ```
 
-Only sales calls go here. `noTranscript: true` for a sales meeting with no recording. `taskListMeetingId` is the Task List OS write-up of the same call, when attached (see "Working with Task List OS").
+Only sales calls go here. `noTranscript: true` for a sales meeting with no recording. `taskListMeetingId` is the Agentic Task List write-up of the same call, when attached (see "Working with Agentic Task List").
 
 ### Brain dump
 
@@ -166,12 +166,12 @@ If they've renamed or removed a stage, use the one that means the same thing; if
 
 Set `stage`, `stageChangedAt`, add a `stage` line to `timeline` (`by: "claude"`), and set `moved` with a one-sentence `reason` that names the evidence ("You sent Dev the proposal yesterday at 4:20pm"). The deal panel shows it for a week with a "Move it back" link; it doesn't go to Review. Never move a deal backwards, never to won or lost, and never past a stage. When `autoMove` is false, add a `task` suggestion instead.
 
-## Working with Task List OS
+## Working with Agentic Task List
 
-When Task List OS is attached (it's in `apps/installed.json`):
+When Agentic Task List is attached (it's in `apps/installed.json`):
 
 - **One write-up per call.** Its `process-calls` writes calls up on its Calls page. Don't write the same call up again: read its write-up from `meetings` in `apps/task-list/data/tasks.json` (match on the recorder's `ref`), and add the sales side here (the call with `taskListMeetingId`, the deal update, the deal check). Never edit the task list's records.
-- **Actions land in the task list.** Call prep, chases and next steps that need doing become suggested tasks there, in its format (`apps/task-list/CLAUDE.md`), with `"source": { "tool": "pipeline", "id": "<deal id>" }`. The draft email stays on the deal; the task's notes say "The email is ready on the deal in Pipeline OS". Don't add a task you've already added (check `source.id` and the title).
+- **Actions land in the task list.** Call prep, chases and next steps that need doing become suggested tasks there, in its format (`apps/task-list/CLAUDE.md`), with `"source": { "tool": "pipeline", "id": "<deal id>" }`. The draft email stays on the deal; the task's notes say "The email is ready on the deal in Agentic Pipeline". Don't add a task you've already added (check `source.id` and the title).
 - **One check-in.** Its `check-in` runs, then `pipeline-check-in` for the sales side, in the same run.
 
 ## Rules for editing the file safely

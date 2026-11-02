@@ -1,4 +1,4 @@
-# Testing Pipeline OS
+# Testing Agentic Pipeline
 
 How to test the whole thing as a customer would, without touching the repo. Also follow section 5 of `SHARED-V3-CHANGES.md` and the testing section of `SHARED-V4-CHANGES.md` for the shared parts.
 
@@ -10,7 +10,7 @@ Never test inside the repo: setup writes real details into it. Build the release
 bash maintainers/make-release.sh
 ```
 
-Then unzip `dist/pipeline-os.zip` into a test location, for example `Documents/Pipeline OS test`. Each test run starts from a fresh unzip.
+Then unzip `dist/agentic-pipeline.zip` into a test location, for example `Documents/Agentic Pipeline test`. Each test run starts from a fresh unzip.
 
 ## 2. Run setup as a customer
 
@@ -42,12 +42,12 @@ Then unzip `dist/pipeline-os.zip` into a test location, for example `Documents/P
 - [ ] Light and dark on every page; phone width (the board scrolls sideways, the sidebar opens from the menu button).
 
 **Home**
-- [ ] On its own, Pipeline OS's Home boxes are switched on by default. Attached to Task List OS, they start switched off and show in Customise's hidden list.
+- [ ] On its own, Agentic Pipeline's Home boxes are switched on by default. Attached to Agentic Task List, they start switched off and show in Customise's hidden list.
 
-## 4. Attached to Task List OS
+## 4. Attached to Agentic Task List
 
-On a scratch copy of Task List OS, follow `ATTACHING.md` to attach this tool, then check:
-- [ ] Both tools show as dropdowns in the sidebar; Home offers both tools' boxes; nothing in Task List OS broke.
+On a scratch copy of Agentic Task List, follow `ATTACHING.md` to attach this tool, then check:
+- [ ] Both tools show as dropdowns in the sidebar; Home offers both tools' boxes; nothing in Agentic Task List broke.
 - [ ] Setup didn't ask what the business does again (only what `context/sales.md` still needed).
 - [ ] People shows the task list's contacts with their deals, read only.
 - [ ] A recorded sales call is written up once: on the task list's Calls page and, with the sales side, on the deal.

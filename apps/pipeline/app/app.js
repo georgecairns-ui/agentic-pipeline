@@ -1,5 +1,5 @@
 /*
-  PIPELINE OS: the app
+  AGENTIC PIPELINE: the app
   --------------------
   Ties everything together:
   1. Connects to data/pipeline.json through the shared store.
@@ -106,7 +106,7 @@
   }
   function gateCard(art, eyebrow, title, body, actions, small) {
     return '<div class="gate__card">' +
-      '<div class="gate__text"><div class="gate__brand"><img src="../shared/images/claude-icon.png" alt="" width="28" height="28"><span>Pipeline OS</span></div>' +
+      '<div class="gate__text"><div class="gate__brand"><img src="../shared/images/claude-icon.png" alt="" width="28" height="28"><span>Agentic Pipeline</span></div>' +
       (eyebrow ? '<span class="label">' + esc(eyebrow) + "</span>" : "") + "<h1>" + title + "</h1>" + body +
       '<div class="gate__actions">' + actions + "</div>" + (small ? '<p class="gate__small">' + small + "</p>" : "") + "</div>" +
       '<div class="gate__art"><img src="' + C.ART[art] + '" alt="" width="440" height="440"></div></div>';
@@ -117,7 +117,7 @@
     }
     if (status === "needs-helper") {
       return showGate(gateCard("welcome", "", "Your pipeline opens from Claude.",
-        "<p>Claude runs your pipeline on this computer and gives you a link to it. In Claude Code, in your Pipeline OS folder, just say:</p>" + C.say("Open my pipeline") +
+        "<p>Claude runs your pipeline on this computer and gives you a link to it. In Claude Code, in your Agentic Pipeline folder, just say:</p>" + C.say("Open my pipeline") +
         '<p class="gate__note">Not set up yet? Say <strong>/setup</strong> instead. Claude asks about your business and the people you sell to, connects your email, calendar and calls, and builds your pipeline first.</p>',
         "",
         '<button type="button" class="link-btn" data-action="connect">Or connect the folder yourself in Chrome</button>'));
@@ -136,7 +136,7 @@
     }
     showGate(gateCard("welcome", "One-time setup", "The pipeline that chases itself. <span class=\"accent\">Approved by you.</span>",
       "<p>Claude writes up your sales calls, checks every deal, tells you what to do next and drafts the email back. Everything lands here for you to approve. It all lives in a file on your own computer.</p>" +
-      '<ol class="gate__steps"><li><span>Click <strong>Connect your pipeline</strong>.</span></li><li><span>Choose your <strong>Pipeline OS</strong> folder, the one with START-HERE.md in it.</span></li><li><span>When Chrome asks to let this page edit files, click <strong>Allow</strong>.</span></li></ol>' +
+      '<ol class="gate__steps"><li><span>Click <strong>Connect your pipeline</strong>.</span></li><li><span>Choose your <strong>Agentic Pipeline</strong> folder, the one with START-HERE.md in it.</span></li><li><span>When Chrome asks to let this page edit files, click <strong>Allow</strong>.</span></li></ol>' +
       (message ? '<p class="gate__error" role="alert">' + icon("alert") + esc(message) + "</p>" : ""),
       '<button type="button" class="btn btn--primary btn--lg" data-action="connect">' + icon("folder") + "Connect your pipeline</button>",
       "No account, nothing to install. Your deals never leave your computer."));
@@ -164,7 +164,7 @@
   }
   function storeInfo() {
     return { canChange: !store.isHelper(),
-      folder: store.isHelper() ? "Your Pipeline OS folder, on this computer" : store.folderName() };
+      folder: store.isHelper() ? "Your Agentic Pipeline folder, on this computer" : store.folderName() };
   }
   function ctx() { return { d: data, state: state, anim: anim, actions: viewActions, storeInfo: storeInfo, claude: claude }; }
 
@@ -218,7 +218,7 @@
     root.scrollTop = scroll;
     $("#viewTitle").textContent = view.title(c);
     $("#viewSub").textContent = view.sub ? view.sub(c) : "";
-    document.title = view.title(c) + " · Pipeline OS";
+    document.title = view.title(c) + " · Agentic Pipeline";
   }
 
   // The record panel
@@ -348,7 +348,7 @@
   }
 
   // ---------- Brain dump (shared, ../shared/js/braindump.js) ----------
-  // The button, V and the sorting are shared by every tool. Pipeline OS adds "A deal..." and
+  // The button, V and the sorting are shared by every tool. Agentic Pipeline adds "A deal..." and
   // "A person..." to "What's it about?", and starts with the deal that's open, if one is.
   if (window.TaskListOS.brainDump) window.TaskListOS.brainDump.register("pipeline", {
     pickers: function () {
@@ -516,7 +516,7 @@
   //   one email to everyone, opened in their email with every address in Bcc
   //   a personal email to each, written by Claude and put in Review to check and send one by one
   function groupPrompt(g, topic) {
-    return "In Pipeline OS, write a short personal email to each person in my \u201c" + g.label + "\u201d group on the People page" +
+    return "In Agentic Pipeline, write a short personal email to each person in my \u201c" + g.label + "\u201d group on the People page" +
       (topic ? ", about: " + topic : "") + ". Use what you know about each person and their deal (apps/pipeline/data/pipeline.json, context/sales.md) and write in my voice (context/voice.md, .claude/skills/human-email). " +
       "Add each one as a suggestion of kind \"email\" with the draft, so I can check and send them from Review. Don't send anything.";
   }
@@ -578,7 +578,7 @@
     switch (action) {
       case "connect":
         store.connect().catch(function (err) {
-          renderGate(err && err.kind === "wrong-folder" ? "That folder doesn't have your pipeline in it. Choose your Pipeline OS folder, the one with START-HERE.md in it." : "That didn't work. Please try again, and click Allow when Chrome asks.");
+          renderGate(err && err.kind === "wrong-folder" ? "That folder doesn't have your pipeline in it. Choose your Agentic Pipeline folder, the one with START-HERE.md in it." : "That didn't work. Please try again, and click Allow when Chrome asks.");
         });
         break;
       case "reconnect": store.reconnect().catch(function () { renderGate(); }); break;
@@ -870,7 +870,7 @@
   state.view = V[fromHash] ? fromHash : V[lastView] ? lastView : "pipeline";
   if (location.hash !== "#" + state.view) history.replaceState(null, "", "#" + state.view);
 
-  // When Task List OS is attached, its contacts show in People and can be linked to deals (read only here)
+  // When Agentic Task List is attached, its contacts show in People and can be linked to deals (read only here)
   function loadTaskListPeople() {
     if (!store.isHelper()) return;
     fetch("../installed.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : { tools: [] }; }).then(function (inst) {

@@ -1,4 +1,4 @@
-# Pipeline OS
+# Agentic Pipeline
 
 **The pipeline that does the selling admin for you, and makes you better at selling.** A free kit from [Get AI Powers](https://getaipowers.com), run by Claude.
 
@@ -6,7 +6,7 @@ Every conversation you have with a prospective customer, by email, on a call or 
 
 Nothing goes out without your click. Claude reads, researches, drafts and keeps your pipeline moving. When an email is ready you choose: **Claude emails** (you check it, press Send, and Claude sends it) or **I'll do it**.
 
-Pipeline OS is part of a toolkit of 7 free tools from Get AI Powers. The others (a task list, proposals, content, money and more) show in the app's menu, and Get AI Powers sets them up with you on a free call.
+Agentic Pipeline is part of a toolkit of 7 free tools from Get AI Powers. The others (a task list, proposals, content, money and more) show in the app's menu, and Get AI Powers sets them up with you on a free call.
 
 ## What happens when you type /setup
 
@@ -42,12 +42,12 @@ You copy the kit, open it in the Claude desktop app (the Code tab) and type **/s
 
 1. **Open the Claude desktop app and choose the Code tab.** Any folder will do for this first step.
 2. **Ask Claude to fetch the kit.** Paste this:
-   > Copy Pipeline OS from https://github.com/georgecairns-ui/pipeline-os into a folder called "Pipeline OS" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up.
+   > Copy Agentic Pipeline from https://github.com/georgecairns-ui/agentic-pipeline into a folder called "Agentic Pipeline" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up.
 
    Claude copies everything onto your computer and tells you how to open the new folder. In the desktop app, you choose the folder in the Code tab.
 
-   *For Claude, if this README is all you have:* read START-HERE.md on the repository page at https://github.com/georgecairns-ui/pipeline-os, then copy the folder with the Mac or Windows line in it.
-3. **In the Code tab, choose the Pipeline OS folder and pick "Yes, I trust this folder".** The first time, the app asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude update your pipeline, your business notes and your files folder, search the web and start the app, without stopping to ask each time. It still can't send, delete or change anything in your email or other apps.
+   *For Claude, if this README is all you have:* read START-HERE.md on the repository page at https://github.com/georgecairns-ui/agentic-pipeline, then copy the folder with the Mac or Windows line in it.
+3. **In the Code tab, choose the Agentic Pipeline folder and pick "Yes, I trust this folder".** The first time, the app asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude update your pipeline, your business notes and your files folder, search the web and start the app, without stopping to ask each time. It still can't send, delete or change anything in your email or other apps.
 4. **Type `/setup`.**
 
 Then it opens your pipeline and gives you its link, **http://localhost:4747**. Bookmark it.
@@ -66,7 +66,7 @@ Apps connect through Claude's Connectors: each one asks you to sign in on that a
 
 ## Your information
 
-Your deals and notes live in this folder on your computer. Claude reads your email, calendar, calls and apps through the connections you approve. The only thing it ever sends is an email you've checked and pressed Send on, and only if you agreed to that in setup. It never deletes, pays or posts for you, never sends LinkedIn messages, and never sends a bot to your meetings. There's no Pipeline OS account or server; Get AI Powers can't see any of it. Read [docs/PRIVACY-AND-SAFETY.md](docs/PRIVACY-AND-SAFETY.md) for the detail.
+Your deals and notes live in this folder on your computer. Claude reads your email, calendar, calls and apps through the connections you approve. The only thing it ever sends is an email you've checked and pressed Send on, and only if you agreed to that in setup. It never deletes, pays or posts for you, never sends LinkedIn messages, and never sends a bot to your meetings. There's no Agentic Pipeline account or server; Get AI Powers can't see any of it. Read [docs/PRIVACY-AND-SAFETY.md](docs/PRIVACY-AND-SAFETY.md) for the detail.
 
 ## Make it yours
 
@@ -74,7 +74,7 @@ Change the stages, the deal check wording, the colours and the folders by asking
 
 ## Want it set up properly for you?
 
-Pipeline OS works on its own. If you'd like help building your folders, business context and Claude skills around how you really sell, Get AI Powers can help. Find us at [getaipowers.com](https://getaipowers.com).
+Agentic Pipeline works on its own. If you'd like help building your folders, business context and Claude skills around how you really sell, Get AI Powers can help. Find us at [getaipowers.com](https://getaipowers.com).
 
 ## What's inside
 
@@ -91,7 +91,7 @@ skills-to-upload/      the skills Claude builds for your business, packed up to 
 files/                 your business documents, in numbered folders
 apps/                  the pipeline app and its look (theme.css)
 docs/                  customising, privacy and safety
-maintainers/           for people developing Pipeline OS itself
+maintainers/           for people developing Agentic Pipeline itself
 ```
 
 ## Licence

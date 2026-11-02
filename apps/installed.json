@@ -2,7 +2,7 @@
   "tools": [
     {
       "id": "pipeline",
-      "name": "Pipeline OS",
+      "name": "Agentic Pipeline",
       "app": "apps/pipeline/",
       "dataFiles": ["apps/pipeline/data/pipeline.json"]
     }

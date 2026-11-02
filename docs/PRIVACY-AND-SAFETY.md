@@ -4,7 +4,7 @@ Plain answers to the questions people ask before connecting their email.
 
 ## Where is my information kept?
 
-In this folder on your computer, and in the apps you already use. Pipeline OS has no account, no server and no database. Your deals are one file: `apps/pipeline/data/pipeline.json`. Claude's notes about your business are in `context/`. You can open, read and edit all of it yourself.
+In this folder on your computer, and in the apps you already use. Agentic Pipeline has no account, no server and no database. Your deals are one file: `apps/pipeline/data/pipeline.json`. Claude's notes about your business are in `context/`. You can open, read and edit all of it yourself.
 
 If this folder sits inside Google Drive, OneDrive or Dropbox, it's backed up there like any other folder. If that folder is shared with other people, they can read your deals and notes too, so keep it in a private part of your drive.
 
@@ -42,7 +42,7 @@ Yes. `context/tools.md` lists every connected app and what Claude may do in each
 
 ## What is the helper?
 
-Your pipeline app runs from a small program in your Pipeline OS folder, so it opens like a web page at http://localhost:4747. It only listens on your own computer: nothing on the internet or your network can reach it. It only shows the app and only ever saves your pipeline file, keeping a backup before every save. When you add call notes, it can start Claude Code on your computer to read them, for that one job only, and only when the app itself asks. Claude can make it start with your computer, and you can turn that off any time by asking Claude.
+Your pipeline app runs from a small program in your Agentic Pipeline folder, so it opens like a web page at http://localhost:4747. It only listens on your own computer: nothing on the internet or your network can reach it. It only shows the app and only ever saves your pipeline file, keeping a backup before every save. When you add call notes, it can start Claude Code on your computer to read them, for that one job only, and only when the app itself asks. Claude can make it start with your computer, and you can turn that off any time by asking Claude.
 
 ## Does it run when I'm not there?
 
@@ -50,7 +50,7 @@ Only if you choose check-ins during setup; you can skip them. Then the Claude ap
 
 ## Who sees my information?
 
-You, and Claude while you're working with it. Your conversations with Claude are covered by your Claude account's privacy settings, which you can check in the Claude app. Get AI Powers, who made Pipeline OS, can't see your folder, your deals or your email.
+You, and Claude while you're working with it. Your conversations with Claude are covered by your Claude account's privacy settings, which you can check in the Claude app. Get AI Powers, who made Agentic Pipeline, can't see your folder, your deals or your email.
 
 ## The approve button
 

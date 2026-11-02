@@ -1,5 +1,5 @@
 /*
-  PREFERENCES: everything the person can change about how Pipeline OS works for them
+  PREFERENCES: everything the person can change about how Agentic Pipeline works for them
   ---------------------------------------------------------------------------------
   You and your business, your stages (rename, add, remove), money and chasing, whether Claude
   may move deals by itself, the deal check's wording, where drafts open, light or dark, and
@@ -138,7 +138,7 @@
   window.PL.views = window.PL.views || {};
   window.PL.views.preferences = {
     title: function () { return "Preferences"; },
-    sub: function () { return "How Pipeline OS works for you"; },
+    sub: function () { return "How Agentic Pipeline works for you"; },
     render: render,
     collect: collect,
     addStageRow: addStageRow,

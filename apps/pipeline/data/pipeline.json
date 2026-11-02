@@ -1,6 +1,6 @@
 {
   "about": [
-    "Your pipeline. Claude and the Pipeline OS app both read and write this file.",
+    "Your pipeline. Claude and the Agentic Pipeline app both read and write this file.",
     "You never need to edit it by hand: ask Claude, or use the app at http://localhost:4747.",
     "Claude: the format is in apps/pipeline/CLAUDE.md."
   ],

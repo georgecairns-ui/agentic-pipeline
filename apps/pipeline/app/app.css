@@ -1,5 +1,5 @@
 /*
-  PIPELINE OS: layout and pieces (copied from Task List OS so both tools match; Pipeline parts at the end)
+  AGENTIC PIPELINE: layout and pieces (copied from Agentic Task List so both tools match; Pipeline parts at the end)
   Colours, fonts and spacing all come from shared/theme.css.
 */
 
@@ -657,7 +657,7 @@ details.slist > summary::-webkit-details-marker { display: none; }
 .claude-can__actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
 /* ============================================================
-   Pipeline OS: its own pieces. Shared theme variables only, so light, dark and a customer's
+   Agentic Pipeline: its own pieces. Shared theme variables only, so light, dark and a customer's
    own colours all work.
    ============================================================ */
 

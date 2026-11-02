@@ -2,7 +2,7 @@
 
 Status: not filled in yet
 
-<!-- Claude: filled in during setup (setup/pipeline-01-your-customers.md) and kept up to date by keep-context-fresh. Pipeline OS needs it to spot sales calls, check deals and suggest other ways to help. Keep it short, in the owner's words. Replace every line below. -->
+<!-- Claude: filled in during setup (setup/pipeline-01-your-customers.md) and kept up to date by keep-context-fresh. Agentic Pipeline needs it to spot sales calls, check deals and suggest other ways to help. Keep it short, in the owner's words. Replace every line below. -->
 
 ## What we sell
 
@@ -30,4 +30,4 @@ Status: not filled in yet
 
 ## Before
 
-<!-- Where deals lived before Pipeline OS (a spreadsheet, Pipedrive, HubSpot, the inbox), and when to chase someone who's gone quiet. -->
+<!-- Where deals lived before Agentic Pipeline (a spreadsheet, Pipedrive, HubSpot, the inbox), and when to chase someone who's gone quiet. -->

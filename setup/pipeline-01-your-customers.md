@@ -1,6 +1,6 @@
 # Step 4: your customers and what you sell (required)
 
-Goal: you know what the business sells, who it sells to and the problems it solves for them, written down in `context/sales.md`. **Pipeline OS can't do its job without this.** It's how you tell a sales call from any other meeting, how you check whether a deal is real, and how you spot other problems the business could solve. So this step is required: setup doesn't go past it until questions 1 to 3 are answered.
+Goal: you know what the business sells, who it sells to and the problems it solves for them, written down in `context/sales.md`. **Agentic Pipeline can't do its job without this.** It's how you tell a sales call from any other meeting, how you check whether a deal is real, and how you spot other problems the business could solve. So this step is required: setup doesn't go past it until questions 1 to 3 are answered.
 
 ## 1. Work it out first
 
@@ -10,7 +10,7 @@ The person shouldn't start from a blank page. Before asking anything, quietly ga
 - Their **sent email** (step 2 read the last 30 days): what they quote for, who they quote, the questions prospects ask, who says yes.
 - Their **calendar** and **calls**: who they meet before work starts, how a sale usually goes.
 - Their **CRM or spreadsheet**, if connected: deal sizes, stages, where deals come from.
-- `context/business.md`, if it's already filled in (for example when Pipeline OS was attached to Task List OS): reuse it. Never ask something it already answers.
+- `context/business.md`, if it's already filled in (for example when Agentic Pipeline was attached to Agentic Task List): reuse it. Never ask something it already answers.
 
 Use what you find to draft answers. Don't present guesses as facts: mark anything you're unsure of with "(my guess)".
 
@@ -37,7 +37,7 @@ If they still don't want to answer, stop here. Note it in `setup/progress.md` ("
 
 ## 3. Write it down
 
-- Fill in `context/sales.md`, one section per question, in their words. If it doesn't exist (Pipeline OS was attached to another tool's folder), create it from Pipeline OS's `context/sales.md` template first. Change its status line to `Status: filled in on <date>`.
+- Fill in `context/sales.md`, one section per question, in their words. If it doesn't exist (Agentic Pipeline was attached to another tool's folder), create it from Agentic Pipeline's `context/sales.md` template first. Change its status line to `Status: filled in on <date>`.
 - If `context/business.md` is still empty, fill its first lines from the same answers (name, what you do, who for, what you sell). Never overwrite what's there; add.
 - In `apps/pipeline/data/pipeline.json`, set `settings.stages` (their stages, keeping `won` and `lost` last; keys are lowercase words with hyphens), `settings.chaseAfterDays`, `settings.currency` if not pounds, and `settings.salesSetUp` to `true`.
 - Add their main competitors and their usual decision-maker to `context/sales.md`, not `people.md`.

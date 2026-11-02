@@ -6,7 +6,7 @@ Goal: connect the 2 or 3 other apps from step 1 that hold deals, customers or bo
 
 Rule of thumb: connect what holds **deals in progress**, **who their customers are**, or **sales meetings being booked**.
 
-| App type | What it gives Pipeline OS | Guide |
+| App type | What it gives Agentic Pipeline | Guide |
 |---|---|---|
 | Accounts: Xero | Who's already a customer, so their meetings aren't mistaken for new sales | `setup/connections/xero.md` |
 | Accounts: QuickBooks | The "Intuit QuickBooks" connector for US customers; otherwise a monthly export works | `setup/connections/quickbooks.md` |

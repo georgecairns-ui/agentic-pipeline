@@ -48,11 +48,11 @@ Read `apps/pipeline/CLAUDE.md` first: it explains the pipeline file and how to e
 2. Leave out newsletters, receipts, automatic notifications and no-reply senders.
 3. Open only the threads from real people, in batches. After each batch, one progress line: "Read 140 of 380 conversations, 6 look like deals so far."
 4. Fill `apps/pipeline/data/pipeline.json` from what you read, following `setup/pipeline-02-first-run.md`'s rules for what counts as a deal:
-   - **People:** everyone they're talking to about buying, and their existing customers, go into `people` with the right `role` (`prospect`, `client` or `customer`). When Task List OS is attached, link to its contacts instead (see "People" in `apps/pipeline/CLAUDE.md`).
+   - **People:** everyone they're talking to about buying, and their existing customers, go into `people` with the right `role` (`prospect`, `client` or `customer`). When Agentic Task List is attached, link to its contacts instead (see "People" in `apps/pipeline/CLAUDE.md`).
    - **Open deals:** each conversation with a prospect becomes a deal (if it isn't one already) with the person, `source`, `summary`, the conversations on the `timeline` and `lastContact`, at the stage the evidence shows. Proposals and quotes in their sent email tell you a lot. A conversation with an existing customer is a deal only when it's about selling them something more.
    - You don't know how they sell yet (that's step 4), so add a deal straight to the board only when someone plainly wants to buy what the business sells (they asked for a quote, a price or a call about buying, or the business sent them a proposal or quote). Anything you're not sure is a deal goes in as a suggested deal (`suggested: true`, with a one-line `suggestReason`), not straight onto the board.
    - Don't run the deal check or write emails yet: step 8 does that for every deal, once step 4 has told you who they sell to.
-5. Calendar: don't copy any events (Pipeline OS has no calendar view). Read the last 30 days of the calendar only to learn who they meet and what's recurring (people, routines). Step 8 sorts the sales meetings.
+5. Calendar: don't copy any events (Agentic Pipeline has no calendar view). Read the last 30 days of the calendar only to learn who they meet and what's recurring (people, routines). Step 8 sorts the sales meetings.
 6. Set `checkIn.emailsRead` to the number of emails you read. Save, read the file back and check it's valid.
 
 Keep the counts for the hand-over (emails read, people added, deals found). Nothing is sent, labelled, archived or marked as read.

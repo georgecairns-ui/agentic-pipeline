@@ -2,7 +2,7 @@
 
 Goal: 3 to 5 skills written for this business, saved twice: in `.claude/skills/` so they work here straight away, and as files in `skills-to-upload/` that they add to Claude, so the same know-how works in every Claude conversation, on their phone and on the web. This is the moment they see Claude learn their business, so make it feel like a gift, not homework.
 
-A skill is a short set of instructions Claude follows for one job. The ones that come with Pipeline OS are general. These are about **their** services, **their** prices and **their** way of selling.
+A skill is a short set of instructions Claude follows for one job. The ones that come with Agentic Pipeline are general. These are about **their** services, **their** prices and **their** way of selling.
 
 ## 7.1 Ask about their services
 
@@ -19,7 +19,7 @@ Write their answers into `context/business.md` (under "Services") and `context/r
 
 ## 7.2 Suggest the skills
 
-From their answers, `context/sales.md` and what you learned getting to know the business, suggest 3 to 5 skills, one line each, and ask which to build (the default is all of them). Choose from what this business actually does. For Pipeline OS, lead with the sales ones. Good candidates:
+From their answers, `context/sales.md` and what you learned getting to know the business, suggest 3 to 5 skills, one line each, and ask which to build (the default is all of them). Choose from what this business actually does. For Agentic Pipeline, lead with the sales ones. Good candidates:
 
 - **Their deal check**: the questions that tell this business whether a deal is real, in their words (who signs off in their kind of customer, the budget signs, the deal-breakers from "who isn't a good fit"), so they can qualify a lead in any conversation.
 - **Their follow-up after a sales call**: what they always recap, the next step they always offer, their tone.
@@ -55,7 +55,7 @@ description: <what it does and when to use it, in 1 or 2 sentences, under 1,000 
 
 **Make each one stand on its own.** Uploaded to Claude, a skill can't see this folder, so never point at `context/` or `apps/`. Copy the facts it needs into the skill itself: the prices, the steps, the tone. Use their real details, never placeholders. If you don't know a price, write what they told you ("priced per project, usually £800 to £1,500") rather than inventing one. Keep each skill under 200 lines.
 
-If `.claude/skills/` and `skills-to-upload/` already hold skills you built for them (for example with Task List OS), add to them. Never replace or rewrite one they already have; build only what's new.
+If `.claude/skills/` and `skills-to-upload/` already hold skills you built for them (for example with Agentic Task List), add to them. Never replace or rewrite one they already have; build only what's new.
 
 Save each skill in 2 places:
 
@@ -70,7 +70,7 @@ Try one straight away on something real, so they see it work. For example, draft
 
 Then tell them, in your own words:
 
-> I've built you 4 skills: your services, your deal check questions, replying to new enquiries and following up after a sales call. They already work here. I've also saved them in the **skills-to-upload** folder inside Pipeline OS, so you can add them to Claude and use them everywhere, including the Claude app on your phone.
+> I've built you 4 skills: your services, your deal check questions, replying to new enquiries and following up after a sales call. They already work here. I've also saved them in the **skills-to-upload** folder inside Agentic Pipeline, so you can add them to Claude and use them everywhere, including the Claude app on your phone.
 >
 > To add them: open Claude (claude.ai or the Claude app) and go to **Customize**, then **Skills**. Press **+**, then **Create skill**, then **Upload a skill**, and choose a file from the skills-to-upload folder. Do it once for each file. It takes about a minute.
 

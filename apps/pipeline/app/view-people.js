@@ -6,7 +6,7 @@
   their deals move. Open a group to see who's in it and to email them: one email to everyone
   (Bcc), or a personal email to each, written by Claude and checked by the person in Review.
   Nothing is ever sent from here.
-  When Task List OS is attached, its contacts show here too (stored once, in the task list).
+  When Agentic Task List is attached, its contacts show here too (stored once, in the task list).
 */
 (function () {
   "use strict";

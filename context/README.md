@@ -7,7 +7,7 @@ They're plain text. You can open and edit any of them yourself. If something's w
 | File | What's in it |
 |---|---|
 | `business.md` | What the business does, for whom, and what it sells |
-| `sales.md` | How you sell: your services and prices, who you sell to, the problems you solve, who isn't a good fit. Pipeline OS reads it for every deal |
+| `sales.md` | How you sell: your services and prices, who you sell to, the problems you solve, who isn't a good fit. Agentic Pipeline reads it for every deal |
 | `people.md` | Your team, helpers, key clients and suppliers |
 | `priorities.md` | What matters most right now |
 | `routines.md` | When you work and the jobs that repeat |
