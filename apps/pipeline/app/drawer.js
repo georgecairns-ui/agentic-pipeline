@@ -75,7 +75,7 @@
       '<label class="draft__field"><span>Subject</span><input class="input input--bare" data-efield="subject" value="' + esc(e.subject || "") + '"></label></div>' +
       '<textarea class="textarea draft__body" data-efield="body" rows="8" aria-label="Email to send">' + esc(e.body) + "</textarea>" +
       '<div class="draft__actions">' + C.emailActions(ctx.d, "deal", x.id, e) + (e.sentAt || e.sendStatus === "sent" ? "" : '<button type="button" class="btn btn--ghost" data-action="copy-email">' + icon("list") + "Copy</button>") + "</div>" +
-      (e.sentAt || e.sendStatus ? "" : '<p class="muted drawer__small">Claude emails: you check it, press Send, and Claude sends it for you. I\'ll do it: it opens in ' + esc(L.emailLabel(ctx.d.settings.emailProvider)) + " for you to send.</p>") + "</section>";
+      (e.sentAt || e.sendStatus ? "" : '<p class="muted drawer__small">Claude emails: you check it, press Send, and Claude sends it for you. I\'ll do it: it opens in ' + esc(L.emailLabel(e.provider || ctx.d.settings.emailProvider)) + " for you to send.</p>") + "</section>";
   }
 
   // LinkedIn: Claude writes the message; the person pastes and sends it

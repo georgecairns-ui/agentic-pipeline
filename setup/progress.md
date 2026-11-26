@@ -6,6 +6,8 @@ Setup status: not started
 
 Guide mode: not asked yet
 
+Claude plan: not asked yet
+
 - [ ] 1. Quick questions
 - [ ] 2. Connect email and calendar
 - [ ] 3. Connect call recordings
@@ -16,6 +18,10 @@ Guide mode: not asked yet
 - [ ] 8. First run
 - [ ] 9. Make it automatic
 - [ ] 10. Check and hand over
+
+## Files you said you'd share
+
+(Claude: each file they said they'd share, what it's for, and `to find`, `found` or `added`. See `setup/first-questions.md`, section 4.)
 
 ## Notes for next time
 

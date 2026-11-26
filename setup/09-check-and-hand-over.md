@@ -9,7 +9,7 @@ Check these yourself. Fix anything that fails, then check again.
 **The pipeline file** (`apps/pipeline/data/pipeline.json`)
 - [ ] Valid, and reads back cleanly.
 - [ ] `settings` has their name, business, stages (with `won` and `lost` last), `chaseAfterDays`, `emailProvider`, `fitCriteria` (4 to 6), `claudeSends`, and `salesSetUp: true`.
-- [ ] If `claudeSends` is true, their email connection's send tool is the only tool in `.claude/settings.local.json` that sends anything; everything else there is a read tool allowed in step 9. Nothing that sends, deletes or posts is in `.claude/settings.json`.
+- [ ] If `claudeSends` is true, their email connections' send tools (one per connected inbox) are the only tools in `.claude/settings.local.json` that send anything; everything else there is a read tool allowed in step 9. Nothing that sends, deletes or posts is in `.claude/settings.json`.
 - [ ] Every deal with a call booked in the next 7 days has `research`.
 - [ ] Every deal has a unique `id`, a `title`, a `stage` from their stages, and at least one `timeline` line. Values are only ones that were said or come from their prices.
 - [ ] Every open deal has been through the deal check (`check.checkedAt` set), with `questions` for next time, and has `nextSteps`. Deal check answers marked known each have `evidence`.
@@ -20,11 +20,11 @@ Check these yourself. Fix anything that fails, then check again.
 **Connections and notes**
 - [ ] `context/sales.md` says "Status: filled in", with what they sell, who to and the problems they solve. If not, setup isn't finished: go back to that step.
 - [ ] Every connected app is in `context/tools.md` with what you may and may not do.
-- [ ] Email is `connected` in `apps/home/data/connections.json` with a checked date from this setup, or `no-connector`, said plainly.
-- [ ] Calendar is checked the same way, separately: `connected` with a checked date from this setup, or `no-connector`, said plainly. (When they come from different providers, each has its own row.)
-- [ ] Their call recorder and every app on the step 5 shortlist is `connected`, `export-only`, `no-connector` or `needs-attention`. Other apps they named may stay `not-connected` with the note "Chose not to connect yet".
+- [ ] Every inbox is `connected` in `apps/home/data/connections.json` with a checked date from this setup, `no-connector` (said plainly), or `waiting` with `waitingOn` and the one thing still to do in `note`.
+- [ ] Calendar is checked the same way, separately: `connected` with a checked date from this setup, `no-connector` (said plainly) or `waiting`. (When they come from different providers, each has its own row.)
+- [ ] Their call recorder and every app on the step 5 shortlist is `connected`, `export-only`, `no-connector`, `waiting` or `needs-attention`. Other apps they named may stay `not-connected` with the note "Chose not to connect yet".
 - [ ] The check-in task exists (`list_scheduled_tasks`) and its first run finished without stopping, or they said no to it.
-- [ ] Every other `context/` file says "Status: filled in", or `setup/progress.md` says why not.
+- [ ] Every other `context/` file says "Status: filled in", or `setup/progress.md` says why not. `context/goal.md` has their goal with the numbers.
 
 **Their skills**
 - [ ] Each skill you built is in `.claude/skills/<name>/SKILL.md` and as `skills-to-upload/<name>.zip`, and the zip opens to a `<name>` folder with `SKILL.md` inside.
@@ -55,9 +55,12 @@ Mention it once. Never suggest the pipeline is broken without it.
 
 1. In `setup/progress.md`, change "Setup status" to `complete on <date>` and tick the last step.
 2. In `CLAUDE.md`, change `Setup: not done yet` to `Setup: complete on <date>`.
-3. Tell them what you did, as a short list with real numbers. For example: "Connected Gmail, Google Calendar and Fathom. Read 30 days of email and 6 sales calls. Found 9 open deals worth £31,400 and checked every one. Drafted 5 emails and 2 chases. Built you 4 skills." Add, in one line each: how many emails from the last 30 days you read, how many deals have an email ready, which apps are connected, and which are export-only.
-4. Remind them about their skills in one line: they're in the **skills-to-upload** folder, and adding them to Claude (Customize, then Skills) means they work in every conversation, including on their phone.
-5. Then tell them, briefly:
+3. Start with their goal, in one line: what they want to achieve (from `context/goal.md`) and that everything here is set up to help with it. Then tell them what you did, as a short list with real numbers. For example: "Connected Gmail, Google Calendar and Fathom. Read 30 days of email and 6 sales calls. Found 9 open deals worth £31,400 and checked every one. Drafted 5 emails and 2 chases. Built you 4 skills." Add, in one line each: how many emails from the last 30 days you read, how many deals have an email ready, which apps are connected, and which are export-only.
+4. **Anything still waiting.** List every `waiting` connection with the one thing to do next: "Microsoft 365 is waiting on your IT team to approve it. When they have, press Finish connecting on Home, or tell me, and I'll read its last 30 days then."
+5. **Files you said you'd share.** List any still `to find` in `setup/progress.md`, by name.
+6. **Joining up the rest.** If anything is `no-connector` or `export-only`, say once: "Want these joined up with something you already use? Book a call with Joey or George," with the booking link from `apps/shared/catalogue.json`. The Connections box on Home has the same link next to each one.
+7. Remind them about their skills in one line: they're in the **skills-to-upload** folder, and adding them to Claude (Customize, then Skills) means they work in every conversation, including on their phone.
+8. Then tell them, briefly:
    - What's connected, and that nothing goes out without their click: Claude emails sends only what they've checked and pressed Send on (if they agreed), and LinkedIn messages are theirs to send.
    - Their link, **http://localhost:4747**, and whether it starts with their computer.
    - The one habit that makes it work: after every sales call, paste your notes into the deal (or let your recorder do it). The deal check, next steps and email follow.
@@ -65,3 +68,4 @@ Mention it once. Never suggest the pipeline is broken without it.
    - The phrases that do most of the work: "update my pipeline", "prep me for my call with...", "who should I chase?", "how qualified is this deal?". In Claude Code each also works as a command, for example `/pipeline-check-in`.
    - That they can say "get the latest version" any time and you will bring the app up to date, keeping everything of theirs.
    - That they can ask for anything in plain words, and change the stages and the deal check wording in Preferences.
+9. Offer the 10-minute "how to use Claude day to day" lesson from `setup/learn-as-you-go.md`, in every guide mode. If they say no, tell them they can say "show me how to use Claude" any time.

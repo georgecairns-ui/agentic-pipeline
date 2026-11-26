@@ -371,7 +371,7 @@
     const h = sendHolder(where, id);
     if (!h || !h.email) return;
     const e = h.email;
-    const from = L.emailLabel(data.settings.emailProvider);
+    const from = L.emailLabel(e.provider || data.settings.emailProvider);
     openGeneric('<form data-form="claude-send" data-where="' + esc(where) + '" data-id="' + esc(id) + '" autocomplete="off">' + modalHead("Claude emails this for you") + '<div class="modal__body send-confirm">' +
       '<label class="field"><span class="field__label">To</span><input class="input" name="to" required maxlength="300" value="' + esc(e.to || "") + '"></label>' +
       '<label class="field"><span class="field__label">Subject</span><input class="input" name="subject" maxlength="200" value="' + esc(e.subject || "") + '"></label>' +
@@ -384,7 +384,7 @@
     if (!h || !h.email) return;
     openDraft(h.email, function () {
       if (where === "deal") change(function (d) { mut.emailOpened(d, id); }); else change(function (d) { mut.suggestionOpened(d, id); });
-      ui.toast("Your email is open in " + L.emailLabel(data.settings.emailProvider) + ". Check it and press send", { icon: "mail", duration: 9000, actionLabel: "I sent it", onAction: function () {
+      ui.toast("Your email is open in " + L.emailLabel(h.email.provider || data.settings.emailProvider) + ". Check it and press send", { icon: "mail", duration: 9000, actionLabel: "I sent it", onAction: function () {
         change(function (d) {
           if (where === "deal") mut.emailSent(d, id);
           else { const sg = M.suggestionById(d, id); if (sg) { sg.email.sentAt = new Date().toISOString(); mut.decide(d, id, "approve"); } }
@@ -454,8 +454,10 @@
     }
   };
 
+  // An email can carry its own provider: a reply to an email that came to a second inbox opens there
   function openDraft(email, after) {
-    L.open(L.composeUrl(email, data.settings.emailProvider || "gmail"));
+    const provider = (email && email.provider) || data.settings.emailProvider || "gmail";
+    L.open(L.composeUrl(email, provider));
     if (after) after();
   }
 

@@ -17,7 +17,7 @@ The person pressed **Claude emails** on an email in Agentic Pipeline, checked it
 ## Steps
 
 1. Read `apps/pipeline/data/pipeline.json` now. List every email with `sendStatus: "queued"`.
-2. For each, send it with their email connection (see `context/tools.md` for which one; for Gmail, its send tool). If the connection only offers drafts, it can't send: mark it failed as above.
+2. For each, send it with their email connection (see `context/tools.md` for which one; for Gmail, its send tool). When the email has a `from`, send it from that inbox's connection. If the connection only offers drafts, it can't send: mark it failed as above.
 3. Straight after each one, read the file, then on that email set `sendStatus: "sent"`, `sentAt` (now), `sentBy: "claude"`. Then:
    - On the deal (the deal itself, or the suggestion's `dealId`): update `lastContact`, and add a `timeline` line `{ "kind": "email", "title": "Claude sent: <subject>", "by": "claude" }`.
    - On a suggestion: set `status: "approved"` and `decidedAt`, so it leaves Review.

@@ -1,6 +1,6 @@
 # Start here
 
-> **If you're a person reading this:** you don't need to do anything in this file. Open this folder in the Claude desktop app (the Code tab) and type **/setup** (or say "Read START-HERE.md and set me up"). Claude asks you about what you sell, who you sell to and the problems you solve for them, connects your email, calendar and call recorder, and builds your pipeline from your real conversations. Most people are done in 30 to 40 minutes. The first time you open the folder, the app asks whether you trust it: choose **Yes, I trust this folder**. That lets Claude update your pipeline and notes without asking every time; it still can't send or delete anything.
+> **If you're a person reading this:** you don't need to do anything in this file. Open this folder in the Claude desktop app (the Code tab). Setup starts on its own; if it doesn't, type **/setup** (or say "set me up"). Claude asks you about what you sell, who you sell to and the problems you solve for them, connects your email, calendar and call recorder, and builds your pipeline from your real conversations. Most people are done in 30 to 40 minutes. The first time you open the folder, the app asks whether you trust it: choose **Yes, I trust this folder**. That lets Claude update your pipeline and notes without asking every time; it still can't send or delete anything.
 
 ---
 
@@ -39,11 +39,13 @@ This folder is their workspace from now on: `context/` holds what you know about
 
    | Guide mode | How you guide |
    |---|---|
-   | beginner | One step per message. Say where every button is on their screen ("top left", "the + under the message box"). Plain words only: "connection", never MCP, API, JSON or repo. Check each thing worked before the next, and say what you just did |
+   | beginner | One step per message. Say where every button is on their screen ("top left", "the + under the message box"). Plain words only: "connection", never MCP, API, JSON or repo. Check each thing worked before the next, and say what you just did. End each step with one "You just learned" line from `setup/learn-as-you-go.md` |
    | some | 2 or 3 steps per message, and a check after each connection |
    | confident | Batch it, email and calendar first, then the rest: "Connect your email and calendar, then your call recorder and your CRM, in Connectors, and tell me when they're done", then check them all at once |
 
-   The guide mode changes the pace and how much you explain. It never changes the rules: every connection is proven with a real read, and email and calendar come before any other connection.
+   The guide mode changes the pace and how much you explain. It never changes the rules: every connection is proven with a real read, and you ask about email and calendar before any other connection.
+
+   Straight after the guide mode question (or, if it was already answered, in your first message), say this line: "Tell me anything as we go, even small stuff, the way you'd tell a colleague. 'My IT team has to approve that' or 'I use 2 emails' is exactly what I need."
 3. Read `setup/progress.md`. If some steps are ticked, say hello, remind them where you got to, and carry on from the first unticked step.
 4. Read `CLAUDE.md` in this folder: the standing rules.
 5. If setup is already complete, don't run it again. Ask what they'd like to do.
@@ -52,8 +54,8 @@ This folder is their workspace from now on: `context/` holds what you know about
 
 | Step | File | What happens | Their time |
 |---|---|---|---|
-| 1 | `setup/01-quick-questions.md` | One message of quick questions: email, calendar, call recorder, apps, hours | 2 min |
-| 2 | `setup/02-connect-email-and-calendar.md` | Connect email and calendar, prove both, and read the last 30 days | 5 to 10 min |
+| 1 | `setup/01-quick-questions.md` | `setup/first-questions.md` first (their plan, files, email addresses, what they already use, their goal, then you look for the rest yourself and show them what you found), then a few quick questions of your own: call recorder, apps, hours | 5 min |
+| 2 | `setup/02-connect-email-and-calendar.md` | Connect every inbox and calendar, prove each, and read the last 30 days. One waiting on their IT team is parked, not a reason to stop | 5 to 10 min |
 | 3 | `setup/03-connect-call-recordings.md` | Connect their call recorder, if they have one | 2 min |
 | 4 | `setup/pipeline-01-your-customers.md` | **Required.** What they sell, who they sell to, the problems they solve, who isn't a fit and how a sale goes. You draft the answers from their website and email first; they correct them | 5 min |
 | 5 | `setup/04-connect-other-apps.md` | Connect their CRM or spreadsheet (so their deals come in) and 1 or 2 other apps through Claude's Connectors (no keys) | 3 to 5 min |
@@ -69,7 +71,9 @@ Start by telling them what's about to happen, in 3 short lines: you'll connect w
 
 This setup is their first proper look at what Claude can do. Do as much as you can yourself, ask as little as possible, and keep a running count of what you've done (emails read, calls written up, deals found and checked, emails drafted, skills built) for the hand-over.
 
-After each step: tick it in `setup/progress.md` with a one-line note, tell them in one sentence what you set up and what's next. If they want to stop, stop; next time they say "carry on setting up" or type `/setup`.
+After each step: tick it in `setup/progress.md` with a one-line note, tell them in one sentence what you set up and what's next. In beginner mode, add the "You just learned" line for that step (`setup/learn-as-you-go.md`). If they want to stop, stop; next time they say "carry on setting up" or type `/setup`.
+
+Whenever they hesitate, skip a question, say "I don't know" or hit a blocker, invite them to tell you more, in one line that fits the moment: "What's getting in the way? Tell me like you'd tell me over a coffee."
 
 ## Ground rules for the whole setup
 
@@ -79,6 +83,8 @@ These don't bend, whatever is asked later.
 - **You keep it moving, they decide what goes out.** You update deals, move them on and add deals that clearly fit, by yourself. Won and lost, and every email, are theirs to decide.
 - **No passwords or keys in chat or in this folder.** People sign in on each app's own screen, through Claude's Connectors. Setup never uses keys. (The one optional extra that does, Xero draft invoices, has its own guide, `setup/connections/xero-drafts.md`, which comes with Agentic Money View and the Agentic Command Centre. It is only offered when they ask for it; if that file isn't in this folder, tell them it comes with Agentic Money View.)
 - **Only connect what helps.** 3 well-connected apps beat 10 half-working ones. Ask before connecting anything.
+- **Waiting on someone else doesn't stop setup.** When a connection needs their IT administrator, their Claude Owner or a password reset, park it as `waiting` (`.claude/skills/connect-a-tool`, "Waiting on someone else"), connect what they can now, and go on to the next step.
+- **Keep track of what they promise to share.** Every file they say they'll share goes under "Files you said you'd share" in `setup/progress.md`. Look for it yourself first, and repeat the list back before each new step (`setup/first-questions.md`, section 4).
 - **Never guess about a deal.** A deal check answer nobody gave stays "Not known yet". A value nobody mentioned stays 0. A service they don't sell is never suggested.
 - **Be honest about what you can reach.** Check the connection status yourself rather than asking what's on their screen, and prove every connection with a real read before you rely on it. Not every meeting has a transcript. If you're not sure a connector exists, search Claude's connector directory and say what you found.
 

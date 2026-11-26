@@ -111,7 +111,7 @@
     }
     return (email.sendStatus === "failed" ? '<span class="send-state send-state--failed">' + icon("alert") + "Couldn't send" + (email.sendError ? ": " + esc(email.sendError) : "") + "</span>" : "") +
       '<button type="button" class="btn btn--primary' + small + '" data-action="claude-send"' + attrs + ">" + icon("sparkle") + "Claude emails</button>" +
-      '<button type="button" class="btn' + small + '" data-action="self-send"' + attrs + ' title="Opens it in ' + esc(L.emailLabel(d.settings.emailProvider)) + ' for you to send">' + icon("pencil") + "I'll do it</button>";
+      '<button type="button" class="btn' + small + '" data-action="self-send"' + attrs + ' title="Opens it in ' + esc(L.emailLabel(email.provider || d.settings.emailProvider)) + ' for you to send">' + icon("pencil") + "I'll do it</button>";
   }
   // LinkedIn: Claude writes it; the person pastes and sends it (LinkedIn doesn't allow automated messages)
   function linkedinActions(where, id, msg, opts) {
