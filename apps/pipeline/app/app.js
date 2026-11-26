@@ -384,7 +384,7 @@
     if (!h || !h.email) return;
     openDraft(h.email, function () {
       if (where === "deal") change(function (d) { mut.emailOpened(d, id); }); else change(function (d) { mut.suggestionOpened(d, id); });
-      ui.toast("Your email is open in " + L.emailLabel(h.email.provider || data.settings.emailProvider) + ". Check it and press send", { icon: "mail", duration: 9000, actionLabel: "I sent it", onAction: function () {
+      ui.toast("Your email is open in " + L.emailLabel(h.email.provider || data.settings.emailProvider) + (h.email.from ? ". Send it from " + h.email.from : "") + ". Check it and press send", { icon: "mail", duration: 9000, actionLabel: "I sent it", onAction: function () {
         change(function (d) {
           if (where === "deal") mut.emailSent(d, id);
           else { const sg = M.suggestionById(d, id); if (sg) { sg.email.sentAt = new Date().toISOString(); mut.decide(d, id, "approve"); } }

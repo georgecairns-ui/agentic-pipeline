@@ -1,6 +1,6 @@
 # Step 1: quick questions
 
-Goal: in one short exchange, learn what the person uses, so every later step is about their apps and nothing else.
+Goal: in a few short messages, learn what the person uses, so every later step is about their apps and nothing else.
 
 ## 1.1 Check what you can reach (quietly, before asking anything)
 
@@ -19,7 +19,7 @@ Open with what you found in 1.1, so they see you've already looked: "You've alre
 
 > To set this up properly I need to know a few things. Short answers are fine.
 >
-> 1. Your first name, your business's name, and in a sentence what it does.
+> 1. In a sentence, what does your business do? (Leave it out if what you found already says.)
 > 2. Do you record your sales calls or meetings? If so, with what? (For example Fathom, Fireflies, Otter, Granola, tl;dv, Read AI, Zoom, Microsoft Teams or Google Meet.)
 > 3. Which other apps do you use for the business? For example accounts (Xero, QuickBooks, FreeAgent), customers and sales (HubSpot, Pipedrive, folk, a spreadsheet), payments (Stripe), files (Google Drive, OneDrive), team chat (Slack, Teams), notes (Notion), bookings (Calendly).
 > 4. Which days and hours do you usually work?
@@ -27,11 +27,13 @@ Open with what you found in 1.1, so they see you've already looked: "You've alre
 
 ## 1.3 Write it down
 
+Their name, business and website are already in `context/business.md` from `setup/first-questions.md`, so later steps use them without asking again.
+
 Fill in `context/tools.md`:
 - "Your setup": computer, Claude plan, workspace location, where their files live, every email address with its provider (work or personal), calendar provider, solo or team.
 - "Connected apps": one row per app they named, with "How it's connected" left as "to do".
 
-Put their working days and hours in `context/routines.md`. Set `settings.yourName` and `settings.businessName` in `apps/pipeline/data/pipeline.json`, and `settings.emailProvider` (`gmail`, `outlook-work`, `outlook-personal` or `other`) for their main work inbox and `settings.calendarProvider` (`google`, `outlook-work`, `outlook-personal` or `other`), so the app's Draft buttons open the right place. (A reply to an email that came to another inbox carries that inbox's provider in its draft, so Draft opens there instead.)
+Put their working days and hours in `context/routines.md`. Set `settings.yourName` and `settings.businessName` in `apps/pipeline/data/pipeline.json` from what `setup/first-questions.md` found, and `settings.emailProvider` (`gmail`, `outlook-work`, `outlook-personal` or `other`) for their main work inbox and `settings.calendarProvider` (`google`, `outlook-work`, `outlook-personal` or `other`), so the app's Draft buttons open the right place. (A reply to an email that came to another inbox carries that inbox's provider in its draft, so Draft opens there instead.)
 
 Create `apps/home/data/connections.json` if it isn't there, in the format in `setup/connections/README.md` ("Recording a connection"), with one row per app they named and one row per inbox (with a single inbox, email and calendar from the same provider share one row, keyed by the guide's file name: `gmail-and-google-calendar` or `microsoft-365`; from different providers, or with more than one inbox, they get a row each, keyed as in step 2's 2.6), each `"status": "not-connected"`. Only ever set `connected` after a real read works.
 

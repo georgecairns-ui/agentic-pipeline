@@ -13,7 +13,7 @@ Check these yourself. Fix anything that fails, then check again.
 - [ ] Every deal with a call booked in the next 7 days has `research`.
 - [ ] Every deal has a unique `id`, a `title`, a `stage` from their stages, and at least one `timeline` line. Values are only ones that were said or come from their prices.
 - [ ] Every open deal has been through the deal check (`check.checkedAt` set), with `questions` for next time, and has `nextSteps`. Deal check answers marked known each have `evidence`.
-- [ ] Deals with a reply or follow-up due have an `email` in their voice, with `to` filled in.
+- [ ] Deals with a reply or follow-up due have an `email` in their voice, with `to` filled in. (No inbox connected yet: deals from email are missing, and that's fine.)
 - [ ] Sales calls (if a recorder is connected) are in `calls`, each linked to a deal.
 - [ ] `people` (or the task list's contacts, when attached) lists the people on each deal.
 
@@ -33,7 +33,7 @@ Check these yourself. Fix anything that fails, then check again.
 
 **With them** (ask them to do these 3 things)
 - [ ] They open **http://localhost:4747** (or their bookmark) and go to **Pipeline**. They see their deals by stage, with the total for each.
-- [ ] They open a deal and press **Draft** on its email. It opens in Gmail or Outlook, written and addressed. (They don't have to send it.)
+- [ ] They open a deal and press **Draft** on its email. It opens in Gmail or Outlook, written and addressed. (They don't have to send it.) With no inbox connected yet and no email on any deal, show them a deal instead and say emails appear once their email is connected.
 - [ ] They paste 2 or 3 lines into **Add call notes** on a deal (a recent call, or a made-up line) and press **Update the deal**. Within a minute or 2 the deal updates by itself. Then read the pipeline file and tell them: "That's working both ways. I can see the notes you added, and the deal's been updated."
 
 If the deal doesn't update by itself, Claude Code may not be where the helper can find it. The notes are safe: the deal shows an **Open in Claude** button that does the same with one click, and the next check-in reads them too. Note it in `setup/progress.md`.
@@ -58,7 +58,7 @@ Mention it once. Never suggest the pipeline is broken without it.
 3. Start with their goal, in one line: what they want to achieve (from `context/goal.md`) and that everything here is set up to help with it. Then tell them what you did, as a short list with real numbers. For example: "Connected Gmail, Google Calendar and Fathom. Read 30 days of email and 6 sales calls. Found 9 open deals worth £31,400 and checked every one. Drafted 5 emails and 2 chases. Built you 4 skills." Add, in one line each: how many emails from the last 30 days you read, how many deals have an email ready, which apps are connected, and which are export-only.
 4. **Anything still waiting.** List every `waiting` connection with the one thing to do next: "Microsoft 365 is waiting on your IT team to approve it. When they have, press Finish connecting on Home, or tell me, and I'll read its last 30 days then."
 5. **Files you said you'd share.** List any still `to find` in `setup/progress.md`, by name.
-6. **Joining up the rest.** If anything is `no-connector` or `export-only`, say once: "Want these joined up with something you already use? Book a call with Joey or George," with the booking link from `apps/shared/catalogue.json`. The Connections box on Home has the same link next to each one.
+6. **Joining up the rest.** If anything is `no-connector` or `export-only`, say once: "Want these joined up with something you already use? Book a call with Joey or George," with the booking link from `apps/shared/catalogue.json`. The Connections box on Home has the same link.
 7. Remind them about their skills in one line: they're in the **skills-to-upload** folder, and adding them to Claude (Customize, then Skills) means they work in every conversation, including on their phone.
 8. Then tell them, briefly:
    - What's connected, and that nothing goes out without their click: Claude emails sends only what they've checked and pressed Send on (if they agreed), and LinkedIn messages are theirs to send.

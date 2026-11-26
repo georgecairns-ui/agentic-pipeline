@@ -10,8 +10,8 @@ Then list back every address from step 1 in one short table, and check it with t
 
 | Address | Where it lives | Can I connect it? |
 |---|---|---|
-| james@cloudsocials.example | Outlook, work account (Microsoft 365) | Yes, with the Microsoft 365 connection. Your IT team may need to approve it |
-| james.thorpe@gmail.example | Gmail | Yes, with the Gmail connection |
+| sam@fernandfinch.example | Outlook, work account (Microsoft 365) | Yes, with the Microsoft 365 connection. Your IT team may need to approve it |
+| sam.ellis@gmail.example | Gmail | Yes, with the Gmail connection |
 
 Add the calendar too, if it's somewhere else. If there's only one address, one line will do.
 
@@ -41,7 +41,7 @@ Then look up this session's connections (`session_connectors_status`) and act on
 
 Keep going round this table until each one is on, or parked as `waiting`. Never ask for their email password: they sign in on Google's or Microsoft's own screen.
 
-If the same connector can only be signed in to one account at a time and they have 2 addresses there, connect the main one and treat the other as having no connector of its own (2.5): it forwards into the connected one.
+Some connectors take one account at a time (Microsoft 365 connects one Microsoft account at a time). When they have 2 addresses on the same connector, connect the main one and treat the other as having no connector of its own (2.5): it forwards into the connected one.
 
 ## 2.3 Prove it
 
@@ -65,7 +65,7 @@ Read `apps/pipeline/CLAUDE.md` first: it explains the pipeline file and how to e
    - **Open deals:** each conversation with a prospect becomes a deal (if it isn't one already) with the person, `source`, `summary`, the conversations on the `timeline` and `lastContact`, at the stage the evidence shows. Proposals and quotes in their sent email tell you a lot. A conversation with an existing customer is a deal only when it's about selling them something more.
    - You don't know how they sell yet (that's step 4), so add a deal straight to the board only when someone plainly wants to buy what the business sells (they asked for a quote, a price or a call about buying, or the business sent them a proposal or quote). Anything you're not sure is a deal goes in as a suggested deal (`suggested: true`, with a one-line `suggestReason`), not straight onto the board.
    - Don't run the deal check or write emails yet: step 8 does that for every deal, once step 4 has told you who they sell to.
-5. Calendar: don't copy any events (Agentic Pipeline has no calendar view). Read the last 30 days of the calendar only to learn who they meet and what's recurring (people, routines). Step 8 sorts the sales meetings.
+5. Calendar: don't copy any events (Agentic Pipeline has no calendar view). Read the last 30 days of every connected calendar, merged into one list, only to learn who they meet and what's recurring (people, routines). Step 8 sorts the sales meetings.
 6. Set `checkIn.emailsRead` to the number of emails you read. Save, read the file back and check it's valid.
 
 Every tool reads them as one inbox from now on. Keep the counts for the hand-over (emails read, people added, deals found). Nothing is sent, labelled, archived or marked as read.
@@ -109,5 +109,5 @@ Don't send a test email. Tick step 2 in `setup/progress.md`, noting anything `wa
 
 - Read only to understand work. Don't read more than you need.
 - Never send, reply, forward, delete, archive, label, mark as read, unsubscribe or accept an invite, even though the connection technically allows some of these.
-- Drafts live on the deal in the pipeline file. Each draft replies from the address the email came to. The person sends each one with **Claude emails** (you send exactly that email, through `send-approved-emails`) or **I'll do it** (it opens in their email). Save a draft into their mailbox only if they ask for that specific email.
+- Drafts live on the deal in the pipeline file. Each draft notes the address the email came to (`from`), and the app tells them to send it from there. The person sends each one with **Claude emails** (you send exactly that email, through `send-approved-emails`) or **I'll do it** (it opens in their email). Save a draft into their mailbox only if they ask for that specific email.
 - Don't copy whole private emails into the pipeline file. A one-line summary on the deal's timeline and your draft are enough.
