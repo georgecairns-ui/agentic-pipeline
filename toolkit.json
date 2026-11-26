@@ -2,7 +2,7 @@
   "id": "pipeline",
   "name": "Agentic Pipeline",
   "version": "1.0.0",
-  "sharedVersion": "13",
+  "sharedVersion": "14",
   "attachingVersion": "4",
   "app": "apps/pipeline/",
   "dataFiles": [

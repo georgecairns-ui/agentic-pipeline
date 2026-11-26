@@ -11,7 +11,8 @@ Runs a few times a day, at the times the person agreed in setup step 9, or whene
 
 - `apps/pipeline/data/pipeline.json` and `apps/pipeline/CLAUDE.md`.
 - `context/sales.md` (what they sell, who to, how a sale usually goes) and `context/people.md` (who's a client, who's team, who isn't sales).
-- The connections in `context/tools.md`: email, calendar, call recorder.
+- The connections in `context/tools.md`: every inbox, calendar, call recorder.
+- `context/goal.md`: their goal, so you can say how this run moves them towards it.
 
 ## Steps
 
@@ -20,13 +21,13 @@ Runs a few times a day, at the times the person agreed in setup step 9, or whene
 3. **Notes waiting.** For any deal with `notesInbox` items still `waiting`, follow `.claude/skills/update-a-deal`.
 4. **Sales calls.** If a call recorder is connected, list calls since the last run (at most 5, newest first). For each, decide if it was a sales call (step 5's clues). For a sales call, link it to its deal (or suggest a new deal) and follow `update-a-deal` with the recording. When Agentic Task List is attached and has already written the call up (its `meetings`, same `ref`), use that write-up and the transcript; don't write it up again. Skip calls already in `calls` (same `ref`).
 5. **No recording.** For a sales meeting that has happened in the last 2 days with no recording or transcript, set the deal's `noTranscript: true` and add a `timeline` line ("Video call (Google Meet). No recording."). The app asks the person for a few lines. Teams, Zoom and Google Meet only make a transcript when recording or transcription was switched on, so this is common: never treat it as an error.
-6. **Sales meetings in the calendar.** Read the calendar for the past 2 days and the next 7. Sort each meeting:
+6. **Sales meetings in the calendar.** Read every connected calendar, merged into one list, for the past 2 days and the next 7. Sort each meeting:
    - **Sales**: about someone buying from them. For one coming up, set the deal's `nextMeeting` (the card then shows "Call booked" with the day and time); for someone new, add the deal (see "New deals" below) with `nextMeeting`. Every sales call coming up in the next 7 days gets researched: follow `.claude/skills/research-a-prospect` for any deal with a booked call and no research from the last 30 days. For one that has happened, remove `nextMeeting` and, if the deal is still before Call completed, move it there (see "Moving deals" in `apps/pipeline/CLAUDE.md`), unless the calendar or email shows it was cancelled or moved.
    - **Customer**: someone who already buys from them, about existing work. Not a deal, unless it's clearly about selling them something more.
    - **Internal or personal**: team, suppliers, advisers, family, the dentist. Ignore it.
    - **Not sure**: decide yourself from the clues below; most meetings can be sorted. Only when the evidence really is split, add a `question` suggestion ("Is your 'Quick chat' with Lena Hart on Friday a sales call?") with `personId`, once per person (check `context/people.md` and earlier questions first).
    Use several clues together, never one alone: the attendees' email addresses and whether they're a client, deal, team member or supplier (`context/people.md`, `people`, the deals); the title ("intro", "discovery", "quote", "site visit", "demo", "chat about", "proposal"); whether it came from their booking link; earlier emails with the same people; and who they sell to in `context/sales.md`.
-7. **Email.** If email is connected, read new email since the last run (at most 50):
+7. **Email.** Read every connected inbox, as one inbox, not just the first: new email since the last run (at most 50 in all). Every email you write back notes the address the email came to (`from`, which the app shows so they send it from there, and `provider` when that inbox isn't their main one; see `email` in `apps/pipeline/CLAUDE.md`):
    - A new enquiry: add a deal (see "New deals" below) with the person, `source`, a `summary`, a `value` only if one was mentioned, and the enquiry on the `timeline`. Write a reply as the deal's `email` (`.claude/skills/human-email`, their voice), offering a call if that's how they sell. If there's no email address but you have their public LinkedIn, write `linkedin` instead.
    - A reply from a prospect on an open deal: add a `timeline` line, update `lastContact`, and if it changes things (a question, a yes, a price worry), follow `update-a-deal` with the email as the evidence.
    - The person sent a proposal or quote: add it to the timeline and move the deal on if `autoMove` allows (see "Moving deals").
@@ -37,7 +38,7 @@ Runs a few times a day, at the times the person agreed in setup step 9, or whene
 11. Update `checkIn`: `lastRunAt` now, `nextRunAt` (the next agreed check-in time, which is in `context/tools.md`, or null if there is no scheduled check-in), and add this run's `emailsRead`, `callsRead` and `dealsUpdated` if `lastRunAt` was today (start from zero on a new day).
 12. Save safely: read right before writing, write the whole file, read it back and check it parses.
 13. Make sure the app is running so the person sees it: `bash setup/scripts/start-app.sh` (Mac or Linux) or `powershell -ExecutionPolicy Bypass -File setup\scripts\start-app.ps1` (Windows). It does nothing if it's already running.
-14. **Connections.** For each app you read from in this check-in, set its `checked` in `apps/home/data/connections.json` to today, and if its status was `needs-attention`, set it back to `connected` (the read just worked). If a read failed, set it to `needs-attention` with what went wrong in `note`, keep the old `checked`, and say so in one line of your summary ("Couldn't read Fathom this time: it may need signing in again. There's a Fix it button on Home.").
+14. **Connections.** For each app you read from in this check-in, set its `checked` in `apps/home/data/connections.json` to today, and if its status was `needs-attention`, set it back to `connected` (the read just worked). If a read failed, set it to `needs-attention` with what went wrong in `note`, keep the old `checked`, and say so in one line of your summary ("Couldn't read Fathom this time: it may need signing in again. There's a Fix it button on Home."). Leave `waiting` rows alone: they're finished when the person says it's sorted (`.claude/skills/connect-a-tool`, "Waiting on someone else").
 
 ## New deals: your call
 
@@ -48,6 +49,8 @@ Decide yourself, using `settings.fitCriteria` and `context/sales.md` (what they 
 - **Clearly not a deal** (spam, suppliers selling to them, job applicants, a bad fit by their own rules): don't add it. If it's a bad-fit enquiry they'd want to answer, add a `task` suggestion with a polite no-thank-you `email`.
 
 ## What to say
+
+Open with one line on progress towards their goal (`context/goal.md`), when this run found something that moves it: "Towards your 2 new clients: Marlow Dental asked for a proposal." Skip that line when nothing moved it, and when `context/goal.md` isn't filled in.
 
 If the person asked: 2 or 3 lines. "Updated 3 deals. Your call with Hollins went well: the deal check is at 69% and a reply is ready. 1 new enquiry from Bramble & Co is waiting in Review, and I've drafted a chase for Marlow Dental."
 On a scheduled run, say nothing unless something is urgent (a hot new enquiry, a sales call in the next 2 hours with prep waiting) or a connection read failed; each of those is worth one line.

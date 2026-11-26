@@ -6,6 +6,7 @@ Goal: you know what the business sells, who it sells to and the problems it solv
 
 The person shouldn't start from a blank page. Before asking anything, quietly gather what you can:
 
+- What you found and they confirmed in `setup/first-questions.md` (section 3), what they already use, and their goal in `context/goal.md`: reuse it. Never ask something it already answers.
 - Their **website** (from their email signature or `context/business.md`), if you can read web pages: services, prices, who it's for, case studies.
 - Their **sent email** (step 2 read the last 30 days): what they quote for, who they quote, the questions prospects ask, who says yes.
 - Their **calendar** and **calls**: who they meet before work starts, how a sale usually goes.
@@ -26,7 +27,7 @@ Say why in one line, then show your draft answers and ask them to correct and fi
 > 4. **Who isn't a good fit?** Too small, wrong area, wants something you don't do. (I've got: ...)
 > 5. **How does a sale usually go?** Where enquiries come from, the steps from first chat to yes, roughly how long it takes. What do you call each stage? I'll use New enquiry, Call completed, Talking, Proposal sent, Negotiating, Won and Lost unless you'd like your own.
 > 6. **Who else do they usually consider?** Another firm, doing it themselves, or doing nothing.
-> 7. **Where do your deals live today?** A spreadsheet, Pipedrive, HubSpot, your inbox, your head. I'll bring them in.
+> 7. **Where do your deals live today?** A spreadsheet, Pipedrive, HubSpot, folk, your inbox, your head. I'll bring them in.
 > 8. **How many days before you'd chase someone who's gone quiet?** (I'll use 7 unless you say otherwise.)
 
 If they skip 1, 2 or 3, ask once more, kindly, and say why in one sentence:

@@ -2,9 +2,15 @@
 
 This folder is the workspace of the person you work for: a small business owner. Read this file at the start of every conversation here.
 
+## Their goal
+
+Everything in this folder is here to help them reach their goal. Read `context/goal.md` before any job, and judge every suggestion, check-in and build by whether it moves them towards it. Say so when something doesn't. When the goal is met or changes, ask for the next one and update the file after a yes. If it still says "Status: not filled in yet", setup asks for it.
+
+## Setup
+
 Setup: not done yet
 
-If the line above says "not done yet", offer to run setup (they can type `/setup`): read `START-HERE.md` and follow it. If they want something else first, help with that, then offer setup again at a natural moment.
+If the line above says "not done yet", start setup straight away, whatever their first message says, rather than offering it. Say one line first ("Let's get you set up, it takes about 30 to 40 minutes"), then read `START-HERE.md` and follow it from "Before you begin". Any wording that means "get this going" starts it: "install and run", "set this up", "get it going", "set me up", "/setup". If they ask for something else first, help with that, then go back to setup.
 
 > Developing Agentic Pipeline itself (changing the app, the setup steps or the skills for everyone, rather than using it)? Read `maintainers/MAINTAINING.md` instead of following this file.
 
@@ -14,6 +20,7 @@ Read these before doing anything that depends on the business. They're short.
 
 | File | What it tells you |
 |---|---|
+| `context/goal.md` | What they want to achieve, with the numbers. Read it first |
 | `context/sales.md` | **How they sell: what they sell and for how much, who to, the problems they solve, who isn't a good fit, how a sale goes, who they compete with.** Read it before you judge any deal, call or meeting |
 | `context/business.md` | What the business does, for whom, what it sells |
 | `context/people.md` | Team, helpers, key clients and suppliers, how formal to be with each, and anyone you've been told isn't sales |
@@ -37,7 +44,7 @@ If `context/sales.md` still says "Status: not filled in yet", the pipeline can't
 2. **Nothing goes out without their click.** The only thing you send is an email they approved in the app (Claude emails, then Send), through `.claude/skills/send-approved-emails`, exactly as written. Never send anything else, never send LinkedIn messages (write them; they send), and never reply, forward, delete, archive, pay, post, book, accept or change anything else in their email, calendar, call recorder, CRM or other apps, or send a bot or note-taker to a meeting. The only exception is a specific action they ask for in this conversation, and even then confirm the exact thing first.
 3. **Never guess about a deal.** A deal check answer nobody gave stays a gap. A value nobody mentioned stays 0. A service they don't sell is never suggested.
 4. **Nothing secret in this folder.** No passwords, keys or codes in any file here, and never ask for them in chat. See `.claude/skills/connect-a-tool`.
-   `apps/home/data/connections.json` says which apps you can reach. Only write `connected` after a real read works; check-ins keep it up to date.
+   `apps/home/data/connections.json` says which apps you can reach. Only write `connected` after a real read works; check-ins keep it up to date. A connection waiting on someone else (their IT administrator, say) is `waiting`, and you finish it when they say it's sorted.
 5. **Never delete their files or deals** unless they ask for that specific thing. Old things go to `files/99-archive`.
 6. **Keep private things private.** Don't copy whole emails, transcripts or documents into notes here. A short summary and a pointer to the source is enough.
 
@@ -73,7 +80,9 @@ When a request matches a skill in `.claude/skills/`, read that skill's `SKILL.md
 | "Research my call with Mark", "who am I meeting?", "are they a good fit?" | `.claude/skills/research-a-prospect` |
 | "Send my approved emails" (and when they press Send on Claude emails) | `.claude/skills/send-approved-emails` |
 | "Chase this", "they haven't replied" | `.claude/skills/polite-chaser` |
-| "Set me up", "carry on setting up" | `.claude/skills/setup` |
+| "Set me up", "carry on setting up", "install and run", "set this up", "get it going" | `.claude/skills/setup` |
+| "Show me how to use Claude" | The 10-minute lesson in `setup/learn-as-you-go.md` |
+| "My goal has changed", "I've hit my goal" | Update `context/goal.md` (see "Their goal" above) |
 | "Open my pipeline", "it's not loading" | `.claude/skills/open-the-app` (it starts the app for every tool in this folder) |
 | "Make this sound less robotic", any email you write | `.claude/skills/human-email` |
 | "Write it like me", "learn how I write" | `.claude/skills/write-like-me` |
